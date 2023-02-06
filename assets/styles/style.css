@@ -1,0 +1,55 @@
+#header {
+  background-color: aqua;
+  margin-top: 2em;
+  border-radius: 2em;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "search results results"
+  "search forecast forecast";
+}
+
+#search {
+  grid-area: search;
+  background-color: aquamarine;
+  border-radius: 2em;
+  margin: 1em;
+  height: 500px;
+}
+
+#search-label {
+  font-size: 25px;
+  margin-bottom: 0.5em;
+}
+
+#search-button {
+  margin-top: 1em;
+  width: 100%;
+  background-color: aqua;
+}
+
+#results {
+  grid-area: results;
+  background-color: blueviolet;
+  border-radius: 2em;
+  margin: 1em;
+}
+
+#forecast {
+  grid-area: forecast;
+  background-color: burlywood;
+  border-radius: 2em;
+  margin: 1em;
+}
