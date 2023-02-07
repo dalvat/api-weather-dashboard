@@ -3,6 +3,8 @@ let searchHistoryDiv = $('#search-history');
 let resultsH2 = $('#results-h2');
 let forecastH2 = $('#forecast-h2');
 let resultsDiv = $('#results')
+let forecastDiv = $('#forecast')
+let forecastCards = $('#forecast-cards')
 
 let placeHistory = [];
 let latHistory = [];
@@ -87,11 +89,11 @@ function dataRequest(response){
     let temp = $('<p>');
     let humidity = $('<p>');
     let windSpeed = $('<p>');
-    let iconAPI = response2.list[0].weather[0].icon
-    let url = "http://openweathermap.org/img/wn/" + iconAPI + ".png";
-    icon.attr('src', url);
+    let iconName = response2.list[0].weather[0].icon;
+    let iconUrl = "http://openweathermap.org/img/wn/" + iconName + ".png";
+    icon.attr('src', iconUrl);
     iconDiv.attr('id', 'icon-div');
-    h2.text(response2.city.name + ", " + moment(response2.list[0].dt, "X").format("(Do, MMM 'YY)"));
+    h2.text(response2.city.name + ", " + moment(response2.list[0].dt, "X").format("(DD/MM/YY)"));
     iconText1.text("Conditions:  ");
     iconText2.text(" " + response2.list[0].weather[0].description);
     temp.text("Temperature:  " + response2.list[0].main.temp + " °c");
@@ -106,7 +108,99 @@ function dataRequest(response){
     resultsDiv.append(humidity);
     resultsDiv.append(windSpeed);
 
-    
+    forecastCards.empty();
+
+    let numberOfCards = [7, 15, 23, 31, 39];
+
+    numberOfCards.forEach(function(number){
+      let card = $('<div>');
+      let cardBody = $('<div>');
+      let cardTitle = $('<h4>');
+      let cardIconDiv = $('<div>');
+      let cardIcon = $('<img>');
+      let cardIconText1 = $('<p>');
+      let cardIconText2 = $('<p>');
+      let cardTemp1 = $('<p>');
+      let cardHumidity1 = $('<p>');
+      let cardTemp2 = $('<p>');
+      let cardHumidity2 = $('<p>');
+      card.addClass('card');
+      cardBody.addClass('card-body');
+      cardTitle.addClass('card-title');
+      cardIconText1.addClass('card-text');
+      cardIconText2.addClass('card-text');
+      cardTemp1.addClass('card-text');
+      cardTemp2.addClass('card-text');
+      cardHumidity1.addClass('card-text');
+      cardHumidity2.addClass('card-text');
+      cardIconDiv.attr('id', 'card-icon-div');
+      cardIconText1.text("Conditions:  ");
+      cardTemp1.text('Temperature:');
+      cardHumidity1.text('Humidity:');
+
+      if (number === 7) {
+        cardTitle.text(moment(response2.list[7].dt, "X").format("DD/MM/YY"));
+        cardIconText2.text(" " + response2.list[7].weather[0].description)
+        cardTemp2.text(response2.list[7].main.temp + " °c");
+        cardHumidity2.text(response2.list[7].main.humidity + " g/m³");
+        let cardIconName = response2.list[7].weather[0].icon
+        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        cardIcon.attr('src', cardIconUrl);
+      };
+
+      if (number === 15) {
+        cardTitle.text(moment(response2.list[15].dt, "X").format("DD/MM/YY"));
+        cardIconText2.text(" " + response2.list[15].weather[0].description)
+        cardTemp2.text(response2.list[15].main.temp + " °c");
+        cardHumidity2.text(response2.list[15].main.humidity + " g/m³");
+        let cardIconName = response2.list[15].weather[0].icon
+        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        cardIcon.attr('src', cardIconUrl);
+      };
+
+      if (number === 23) {
+        cardTitle.text(moment(response2.list[23].dt, "X").format("DD/MM/YY"));
+        cardIconText2.text(" " + response2.list[23].weather[0].description)
+        cardTemp2.text(response2.list[23].main.temp + " °c");
+        cardHumidity2.text(response2.list[23].main.humidity + " g/m³");
+        let cardIconName = response2.list[23].weather[0].icon
+        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        cardIcon.attr('src', cardIconUrl);
+      };
+
+      if (number === 31) {
+        cardTitle.text(moment(response2.list[31].dt, "X").format("DD/MM/YY"));
+        cardIconText2.text(" " + response2.list[31].weather[0].description)
+        cardTemp2.text(response2.list[31].main.temp + " °c");
+        cardHumidity2.text(response2.list[31].main.humidity + " g/m³");
+        let cardIconName = response2.list[31].weather[0].icon
+        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        cardIcon.attr('src', cardIconUrl);
+      };
+
+      if (number === 39) {
+        cardTitle.text(moment(response2.list[39].dt, "X").format("DD/MM/YY"));
+        cardIconText2.text(" " + response2.list[39].weather[0].description)
+        cardTemp2.text(response2.list[39].main.temp + " °c");
+        cardHumidity2.text(response2.list[39].main.humidity + " g/m³");
+        let cardIconName = response2.list[39].weather[0].icon
+        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        cardIcon.attr('src', cardIconUrl);
+      };
+
+      cardIconDiv.append(cardIconText1);
+      cardIconDiv.append(cardIcon);
+      cardIconDiv.append(cardIconText2);
+      card.append(cardTitle);
+      cardBody.append(cardIconDiv);
+      cardBody.append(cardTemp1);
+      cardBody.append(cardTemp2);
+      cardBody.append(cardHumidity1);
+      cardBody.append(cardHumidity2);
+      card.append(cardBody);
+      forecastCards.append(card);
+
+    });
 
   });
 };
