@@ -1,5 +1,9 @@
+body {
+  background-color: rgb(225, 225, 255);
+}
+
 #header {
-  background-color: aqua;
+  background-color: rgb(175, 175, 225);
   margin-top: 2em;
   border-radius: 2em;
 }
@@ -14,15 +18,17 @@ h2 {
 
 h3 {
   margin-top: 20px;
-  font-size: 20px;
+  margin-bottom: 0px;
+  font-size: 15px;
 }
 
 #main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
   "search results results"
+  "search forecast forecast"
   "search forecast forecast";
 }
 
@@ -32,10 +38,15 @@ h3 {
 
 #search {
   grid-area: search;
-  background-color: aquamarine;
+  background-color: rgb(175, 175, 225);
   border-radius: 2em;
   margin: 1em;
   min-height: 500px;
+}
+
+#search h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #search-label {
@@ -46,18 +57,23 @@ h3 {
 #search-button {
   margin-top: 1em;
   width: 100%;
-  background-color: aqua;
+  background-color: rgb(150, 150, 225);
 }
 
 #history-button {
   margin-top: 1em;
   width: 100%;
-  background-color: greenyellow;
+  font-size: 15px;
+  background-color: rgb(175, 175, 225);
+  border: 1px solid rgb(150, 150, 225);
 }
 
 #results {
   grid-area: results;
-  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(175, 175, 225);
   border-radius: 2em;
   margin: 1em;
 }
@@ -74,7 +90,30 @@ h3 {
 
 #forecast {
   grid-area: forecast;
-  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(175, 175, 225);
   border-radius: 2em;
   margin: 1em;
+}
+
+#forecast-h2 {
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+#forecast-cards {
+  display: flex;
+}
+
+.card {
+  background-color: rgb(175, 175, 225);
+  border: none;
+  width: 20%;
+}
+
+#card-icon-div {
+  text-transform: capitalize;
+  margin-bottom: 1em;
 }
