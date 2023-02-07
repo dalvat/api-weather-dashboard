@@ -12,6 +12,11 @@ h2 {
   font-size: 25px;
 }
 
+h3 {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 #main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -21,12 +26,16 @@ h2 {
   "search forecast forecast";
 }
 
+.hide {
+  display: none;
+}
+
 #search {
   grid-area: search;
   background-color: aquamarine;
   border-radius: 2em;
   margin: 1em;
-  height: 500px;
+  min-height: 500px;
 }
 
 #search-label {
@@ -40,11 +49,27 @@ h2 {
   background-color: aqua;
 }
 
+#history-button {
+  margin-top: 1em;
+  width: 100%;
+  background-color: greenyellow;
+}
+
 #results {
   grid-area: results;
   background-color: blueviolet;
   border-radius: 2em;
   margin: 1em;
+}
+
+#icon-div {
+  display: inline-flex;
+  font-size: 15px;
+}
+
+#icon-div p {
+  text-transform: capitalize;
+  margin-top: auto;
 }
 
 #forecast {
