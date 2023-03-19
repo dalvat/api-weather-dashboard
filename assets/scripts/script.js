@@ -25,7 +25,7 @@ function init() {
         button.text(placeHistory[i]);
         $('#search-h3').removeClass('hide');
         button.addClass('btn');
-        button.attr('id', 'history-button')
+        button.attr('id', 'history-button');
         button.attr('data-lat', latHistory[i]);
         button.attr('data-lon', lonHistory[i]);
         searchHistoryDiv.append(button);
@@ -204,3 +204,12 @@ function dataRequest(response){
 
   });
 };
+
+$('#search-history').on('click', function(event) {
+  event.preventDefault();
+  let button = event.target;
+  let lat = button.getAttribute("data-lat");
+  let lon = button.getAttribute("data-lon");
+  let search = [{lon: lon, lat: lat}];
+  dataRequest(search);
+});
