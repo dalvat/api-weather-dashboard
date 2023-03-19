@@ -41,7 +41,7 @@ searchButton.on('click', function(event) {
 
   let searchInput = $('#search-input').val();
 
-  let queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + "&appid=b6c7b90383a5acddfe0378a95dc96066";
+  let queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + "&appid=b6c7b90383a5acddfe0378a95dc96066";
   
   $.ajax({
     type: "GET",
@@ -90,7 +90,7 @@ function dataRequest(response){
     let humidity = $('<p>');
     let windSpeed = $('<p>');
     let iconName = response2.list[0].weather[0].icon;
-    let iconUrl = "http://openweathermap.org/img/wn/" + iconName + ".png";
+    let iconUrl = "https://openweathermap.org/img/wn/" + iconName + ".png";
     icon.attr('src', iconUrl);
     iconDiv.attr('id', 'icon-div');
     h2.text(response2.city.name + ", " + moment(response2.list[0].dt, "X").format("(DD/MM/YY)"));
@@ -144,7 +144,7 @@ function dataRequest(response){
         cardTemp2.text(response2.list[7].main.temp + " °c");
         cardHumidity2.text(response2.list[7].main.humidity + " g/m³");
         let cardIconName = response2.list[7].weather[0].icon
-        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        let cardIconUrl = "https://openweathermap.org/img/wn/" + cardIconName + ".png";
         cardIcon.attr('src', cardIconUrl);
       };
 
@@ -154,7 +154,7 @@ function dataRequest(response){
         cardTemp2.text(response2.list[15].main.temp + " °c");
         cardHumidity2.text(response2.list[15].main.humidity + " g/m³");
         let cardIconName = response2.list[15].weather[0].icon
-        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        let cardIconUrl = "https://openweathermap.org/img/wn/" + cardIconName + ".png";
         cardIcon.attr('src', cardIconUrl);
       };
 
@@ -164,7 +164,7 @@ function dataRequest(response){
         cardTemp2.text(response2.list[23].main.temp + " °c");
         cardHumidity2.text(response2.list[23].main.humidity + " g/m³");
         let cardIconName = response2.list[23].weather[0].icon
-        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        let cardIconUrl = "https://openweathermap.org/img/wn/" + cardIconName + ".png";
         cardIcon.attr('src', cardIconUrl);
       };
 
@@ -174,7 +174,7 @@ function dataRequest(response){
         cardTemp2.text(response2.list[31].main.temp + " °c");
         cardHumidity2.text(response2.list[31].main.humidity + " g/m³");
         let cardIconName = response2.list[31].weather[0].icon
-        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        let cardIconUrl = "https://openweathermap.org/img/wn/" + cardIconName + ".png";
         cardIcon.attr('src', cardIconUrl);
       };
 
@@ -184,7 +184,7 @@ function dataRequest(response){
         cardTemp2.text(response2.list[39].main.temp + " °c");
         cardHumidity2.text(response2.list[39].main.humidity + " g/m³");
         let cardIconName = response2.list[39].weather[0].icon
-        let cardIconUrl = "http://openweathermap.org/img/wn/" + cardIconName + ".png";
+        let cardIconUrl = "https://openweathermap.org/img/wn/" + cardIconName + ".png";
         cardIcon.attr('src', cardIconUrl);
       };
 
